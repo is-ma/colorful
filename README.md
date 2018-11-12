@@ -7,9 +7,7 @@
 
 ```bash
 git clone https://github.com/is-ma/prompt_colors.git ~/.prompt_colors
-echo "" >> ~/.bashrc
-echo "### IS-MA: PROMPT COLORS ###" >> ~/.bashrc
-echo "source ~/.prompt_colors/git_prompt.sh" >> ~/.bashrc
+echo -e "\nsource ~/.prompt_colors/git_prompt.sh" >> ~/.bashrc
 echo "source ~/.prompt_colors/bash_colors.sh" >> ~/.bashrc
 echo "source ~/.prompt_colors/ps1.sh" >> ~/.bashrc
 source ~/.bashrc
@@ -19,9 +17,8 @@ source ~/.bashrc
 
 ```bash
 git clone https://github.com/is-ma/prompt_colors.git ~/.prompt_colors
-echo "" >> ~/.bash_profile
-echo "### IS-MA: PROMPT COLORS ###" >> ~/.bash_profile
-echo "source ~/.prompt_colors/git_prompt.sh" >> ~/.bash_profile
+echo -e "\nsource ~/.prompt_colors/git_prompt.sh" >> ~/.bash_profile
 echo "source ~/.prompt_colors/bash_colors.sh" >> ~/.bash_profile
 echo "source ~/.prompt_colors/ps1.sh" >> ~/.bash_profile
 source ~/.bash_profile
+```
