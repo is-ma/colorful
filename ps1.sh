@@ -3,7 +3,7 @@ function is_green (){
   then
 
     # is my working directory clean?
-    if [ -z "$(git status --untracked-files=no --porcelain)" ]; then
+    if [ -z "$(git status --porcelain)" ]; then
       return 0;  # green
     else
       return -1;  # red
