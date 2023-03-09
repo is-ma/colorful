@@ -13,7 +13,7 @@ function is_green (){
 }
 
 # define PS1
-              PS1="${txtred}\T"       #        hour
+              PS1="${txtred}\t"       #        hour
 PS1="$PS1${txtpur}|${txtylw}\H"       # pipe & host
 PS1="$PS1${txtpur}|${txtgrn}\w"       # pipe & path
 
