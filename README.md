@@ -19,9 +19,9 @@ source ~/.bashrc
 
 ```bash
 git clone https://github.com/is-ma/colorful.git ~/.is-ma/colorful
-echo "" >> ~/.bashrc
-echo "### IS-MA: COLORFUL ###" >> ~/.bashrc
-echo "source ~/.is-ma/colorful/git_prompt.sh" >> ~/.bashrc
+echo "" >> ~/.bash_profile
+echo "### IS-MA: COLORFUL ###" >> ~/.bash_profile
+echo "source ~/.is-ma/colorful/git_prompt.sh" >> ~/.bash_profile
 echo "source ~/.is-ma/colorful/bash_colors.sh" >> ~/.bash_profile
 echo "source ~/.is-ma/colorful/ps1.sh" >> ~/.bash_profile
 source ~/.bash_profile
