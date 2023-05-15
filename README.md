@@ -9,7 +9,7 @@
 git clone https://github.com/is-ma/colorful.git ~/.is-ma/colorful > /dev/null 2>&1
 echo ""
 
-exho "### IS-MA: COLORFUL ###"
+echo "### IS-MA: COLORFUL ###"
 echo "source ~/.is-ma/colorful/git_prompt.sh" >> ~/.bashrc
 echo "source ~/.is-ma/colorful/bash_colors.sh" >> ~/.bashrc
 echo "source ~/.is-ma/colorful/ps1.sh" >> ~/.bashrc
