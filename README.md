@@ -19,7 +19,7 @@ source ~/.bashrc
 ## Installation for Mac
 
 ```bash
-git clone https://github.com/is-ma/colorful.git ~/.is-ma/colorful > /dev/null 2>&1
+git clone https://github.com/is-ma/colorful.git ~/.is-ma/colorful
 echo ""
 echo "### IS-MA: COLORFUL ###"
 echo "source ~/.is-ma/colorful/git_prompt.sh" >> ~/.bashrc
