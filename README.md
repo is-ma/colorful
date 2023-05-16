@@ -6,7 +6,7 @@
 ## Installation for Linux distributions
 
 ```bash
-git clone https://github.com/is-ma/colorful.git ~/.is-ma/colorful > /dev/null 2>&1
+git clone https://github.com/is-ma/colorful.git ~/.is-ma/colorful
 echo "" >> ~/.bashrc
 echo "### IS-MA: COLORFUL ###" >> ~/.bashrc
 echo "source ~/.is-ma/colorful/git_prompt.sh" >> ~/.bashrc
