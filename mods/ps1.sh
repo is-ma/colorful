@@ -1,6 +1,6 @@
 # is there a .git/ directory here?
 function is_git(){
-  if [[ -d ".git" ]]
+  if [[ -d ".git" || -d "../.git" ]]
     then return 0;
   fi
   return -1;
@@ -13,13 +13,14 @@ function is_green (){
 }
 
 # define PS1
-              PS1="${txtred}\t"       #        hour
-PS1="$PS1${txtpur}|${txtylw}\H"       # pipe & host
-PS1="$PS1${txtpur}|${txtgrn}\w"       # pipe & path
+              PS1="${txtred}\t"       # hour (red)
+PS1="$PS1${txtpur}|${txtylw}\H"       # pipe (purple) & host (yellow)
+PS1="$PS1${txtpur}|${txtgrn}\w"       # pipe (purple) & path (green)
 
 # PS1 for git
-PS1="$PS1\$(if is_git; then echo -n '\e[0;35m|'; fi)" # pipe (for master)
-PS1="$PS1${txtblu}\$(__git_ps1 "%s")"                 # master (if any)
+PS1="$PS1\$(if is_git; then echo -n '\e[0;35m|'; fi)" # pipe (purple)
+PS1="$PS1\$(if is_git; then echo -n '\e[0;34m'; fi)" # (blue)
+PS1="$PS1\$(if is_git; then echo $(__git_ps1 '%s'); fi)" # branch name
 PS1="$PS1\$(if is_git; then if is_green; then echo '\e[1;32m ✓'; else echo '\e[1;31m ✗'; fi; fi)"  # git mark
 
 # last PS1 tunning
