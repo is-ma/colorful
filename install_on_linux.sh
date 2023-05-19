@@ -1,5 +1,7 @@
-echo "" >> ~/.bashrc
-echo "### IS-MA: COLORFUL ###" >> ~/.bashrc
-echo "source ~/.is-ma/colorful/mods/git_prompt.sh" >> ~/.bashrc
-echo "source ~/.is-ma/colorful/mods/bash_colors.sh" >> ~/.bashrc
-echo "source ~/.is-ma/colorful/mods/ps1.sh" >> ~/.bashrc
+cat << EOF >> ~/.bashrc
+
+### IS-MA: COLORFUL ###
+source ~/.is-ma/colorful/mods/git_prompt.sh
+source ~/.is-ma/colorful/mods/bash_colors.sh
+source ~/.is-ma/colorful/mods/ps1.sh
+EOF
