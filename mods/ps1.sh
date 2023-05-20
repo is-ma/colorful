@@ -23,9 +23,9 @@ prompt="$prompt${txtgrn}\w"     # path (green)
 
 # git
 prompt="$prompt\$(if is_git; then echo '\e[0;35m|'; fi)"                   # pipe (purple)
-prompt="$prompt\$(if is_git; then echo -n '\e[0;34m'; echo $(echo "${txtblu}$(__git_ps1 '%s')"); fi)"  # branch (blue)
+prompt="$prompt\$(if is_git; then echo -n '\e[0;34m'; echo $(echo $(__git_ps1 '%s')); fi)"  # branch (blue)
 prompt="$prompt\$(if is_red; then echo -n '\e[1;31m ✗'; fi)"               # red mark
 prompt="$prompt\$(if is_green; then echo -n '\e[1;32m ✓'; fi)"             # green mark
 prompt="$prompt\$(if is_green_and_online; then echo -n '\e[1;32m✓'; fi)"   # green mark (double)
 
-export prompt="$prompt${txtrst}\n"
+export PS1="$prompt${txtrst}\n"
