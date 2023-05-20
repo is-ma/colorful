@@ -1,32 +1,31 @@
 # is there a .git/ directory here?
 function is_git(){
-  if [[ -d ".git" || -d "../.git" ]]
-    then return 0;
-  fi
-  return -1;
+  grep -q " .git/" <(ls -la ./) && return 0
+  grep -q " .git/" <(ls -la ../) && return 0
+  return -1
 }
 
-# is my working directory clean?
-function is_green (){
-  if [ -z "$(git status --porcelain)" ]; then return 0; fi;  # green
-  return -1;  # red
+function is_red(){
+  is_git && ! [ -z "$(git status --porcelain)" ] && return 0 || return -1
+}
+function is_green(){
+  is_git && [ -z "$(git status --porcelain)" ] && return 0 || return -1
+}
+function is_green_and_online(){
+  is_green && grep -q "origin/master" <(git log --oneline --decorate -n1) && return 0 || return -1
 }
 
-# define PS1
-              PS1="${txtred}\t"       # hour (red)
-PS1="$PS1${txtpur}|${txtylw}\H"       # pipe (purple) & host (yellow)
-PS1="$PS1${txtpur}|${txtgrn}\w"       # pipe (purple) & path (green)
+prompt="${txtred}\t"            # hour (red)
+prompt="$prompt${txtpur}|"      # pipe (purple)
+prompt="$prompt${txtylw}\H"     # host (yellow)
+prompt="$prompt${txtpur}|"      # pipe (purple)
+prompt="$prompt${txtgrn}\w"     # path (green)
 
-# PS1 for git
-PS1="$PS1\$(if is_git; then echo -n '\e[0;35m|'; fi)" # pipe (purple)
-PS1="$PS1\$(if is_git; then echo -n '\e[0;34m'; fi)" # (blue)
-PS1="$PS1\$(if is_git; then echo $(__git_ps1 '%s'); fi)" # branch name
-PS1="$PS1\$(if is_git; then if is_green; then echo '\e[1;32m ✓'; else echo '\e[1;31m ✗'; fi; fi)"  # git mark
+# git
+prompt="$prompt\$(if is_git; then echo '\e[0;35m|'; fi)"                   # pipe (purple)
+prompt="$prompt\$(if is_git; then echo -n '\e[0;34m'; echo $(echo "${txtblu}$(__git_ps1 '%s')"); fi)"  # branch (blue)
+prompt="$prompt\$(if is_red; then echo -n '\e[1;31m ✗'; fi)"               # red mark
+prompt="$prompt\$(if is_green; then echo -n '\e[1;32m ✓'; fi)"             # green mark
+prompt="$prompt\$(if is_green_and_online; then echo -n '\e[1;32m✓'; fi)"   # green mark (double)
 
-# last PS1 tunning
-PS1="$PS1${txtrst}\n"
-
-export PS1
-
-# could be useful
-# \$(if is_green; then echo '\e[1;32m'; else echo '\e[1;31m'; fi)
+export prompt="$prompt${txtrst}\n"
