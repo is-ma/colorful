@@ -1,5 +1,5 @@
 cat << EOF >> ~/.bashrc
-
+#
 ### IS-MA: COLORFUL ###
 source ~/.is-ma/colorful/mods/git_prompt.sh
 source ~/.is-ma/colorful/mods/bash_colors.sh
