@@ -1,7 +1,8 @@
 # is there a .git/ directory here?
 function is_git(){
-  grep -q " .git/" <(ls -la ./) && return 0
-  grep -q " .git/" <(ls -la ../) && return 0
+  grep -q " .git/" <(ls -la ./) && return 0       # current directory
+  grep -q " .git/" <(ls -la ../) && return 0      # parent directory
+  grep -q " .git/" <(ls -la /../../) && return 0  # grandparent directory
   return -1
 }
 
