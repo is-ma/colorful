@@ -15,6 +15,9 @@ function is_green(){
 function is_green_and_online(){
   is_green && grep -q "origin/master" <(git log --oneline --decorate -n1) && return 0 || return -1
 }
+function is_green_and_online_v2(){
+  is_green && grep -q "origin/main" <(git log --oneline --decorate -n1) && return 0 || return -1
+}
 
 prompt="${txtred}\t"            # hour (red)
 prompt="$prompt${txtpur}|"      # pipe (purple)
@@ -28,5 +31,6 @@ prompt="$prompt\$(if is_git; then echo -n '\e[0;34m'; echo \$(__git_ps1 '%s'); f
 prompt="$prompt\$(if is_red; then echo -n '\e[1;31m ✗'; fi)"               # red mark
 prompt="$prompt\$(if is_green; then echo -n '\e[1;32m ✓'; fi)"             # green mark
 prompt="$prompt\$(if is_green_and_online; then echo -n '\e[1;32m✓'; fi)"   # green mark (double)
+prompt="$prompt\$(if is_green_and_online_v2; then echo -n '\e[1;32m✓'; fi)"   # green mark (double)
 
 export PS1="$prompt${txtrst}\n"
