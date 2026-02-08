@@ -7,12 +7,12 @@
 
 ```bash
 git clone https://github.com/is-ma/colorful.git ~/.is-ma/colorful
-source ~/.is-ma/colorful/install_on_linux.sh
 ```
 
-## Installation for Mac
-
+Add to your `~/.bashrc` and then `source` it:
 ```bash
-git clone https://github.com/is-ma/colorful.git ~/.is-ma/colorful
-source ~/.is-ma/gitz/install_on_macos.sh
+### IS-MA: COLORFUL ###
+source ~/.is-ma/colorful/mods/git_prompt.sh
+source ~/.is-ma/colorful/mods/bash_colors.sh
+source ~/.is-ma/colorful/mods/ps1.sh
 ```
