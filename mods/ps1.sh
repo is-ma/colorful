@@ -1,3 +1,7 @@
+# Custom PS1 prompt with git integration and color support
+# All color codes are defined in bash_colors.sh
+# This prompt shows time, host, directory, and git status
+
 # Optimized git status functions with caching
 __git_cache_time=0
 __git_cache_value=""
@@ -55,15 +59,16 @@ function is_green_and_online() {
 }
 
 # Build PS1 using an array for better readability
+# Each element corresponds to a colored part of the prompt
 prompt_parts=(
-    "${txtred}\t"            # hour (red)
-    "${txtpur}|"             # pipe (purple)
-    "${txtylw}\H"            # host (yellow)
-    "${txtpur}|"             # pipe (purple)
-    "${txtgrn}\w"            # path (green)
+    "${txtred}\t"            # current time (red)
+    "${txtpur}|"             # separator (purple)
+    "${txtylw}\H"            # hostname (yellow)
+    "${txtpur}|"             # separator (purple)
+    "${txtgrn}\w"            # working directory (green)
 )
 
-# Join the parts
+# Join all parts without separators (IFS is empty)
 prompt=$(IFS=; echo "${prompt_parts[*]}")
 
 # Git section - optimized to use cached functions
